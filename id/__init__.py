@@ -16,8 +16,11 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 
 app = Flask(__name__)
-
+# start
+# the following code's database uri needs to be changed to mysql+pymysql://root@PiIP/idlab to remotely connect to and from computer in library or other location
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost/idlab'
+
+# end 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 db = SQLAlchemy(app)
 
