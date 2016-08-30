@@ -1,0 +1,35 @@
+{% extends 'header.html' %}
+
+{% block body %}
+
+
+
+{% with messages = get_flashed_messages () %}
+{% if messages %}
+{% for message in messages %}
+
+<div class="alert alert-info">
+  
+  {{ message }}
+   
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div class="jumbotron">
+  <h1 class="display-3">Hello, student!</h1>
+  <p class="lead">You currently aren't in the database for the Innovation and Design Lab. Fill out the form below to create your student account for entry into the lab. Don't forget to take your snapshot. :)</p>
+  <hr class="m-y-2">
+ <form method="POST" action="/" enctype=multipart/form-data>
+    <p><input type="text" class="form-control" name="fname" style="width:75%" placeholder="First Name"></p>
+    <p><input type="text" class="form-control" name="lname" style="width:75%" placeholder="Last Name"></p>
+    <p><input type="text" class="form-control" name="card_id" style="width:75%" placeholder="Card ID (scan it, copy and paste)"></p>
+     <p>Your snapshot: 
+     <br><br>
+     <input type=file name=file>
+     </p>
+     <p><input type="submit" class="btn btn-primary" value="Create!"></p>
+    </form>
+</div>
+
+{% endblock %}
